@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - a function that prunts sizes
- * return: 0 (success)
+ * Return: 0 (Success)
 */
 int main(void)
 {
