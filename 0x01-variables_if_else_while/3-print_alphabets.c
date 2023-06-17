@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - aprogram that prints the alphabet 
+ * main - aprogram that prints the alphabet
  * Return: 0 (Success)
 */
 
@@ -18,5 +18,6 @@ for (alphau = 'A'; alphau <= 'Z'; alphau++)
 {
 putchar(alphau);
 }
+putchar('\n');
 return (0);
 }
