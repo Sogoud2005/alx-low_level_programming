@@ -20,9 +20,9 @@ putchar(f);
 putchar(s);
 if (f == '8' && s == '9')
 continue;
+}
 putchar(',');
 putchar(' ');
-}
 }
 }
 putchar('\n');
