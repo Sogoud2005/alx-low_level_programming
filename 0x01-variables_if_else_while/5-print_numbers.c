@@ -7,11 +7,12 @@
 
 int main(void)
 {
-unsigned int n;
-
+char n;
+n = 0;
 while (n < 10)
 {
 printf("%u\n", n);
+n++;
 }
 return (0);
 }
