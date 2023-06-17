@@ -7,11 +7,12 @@
 
 int main(void)
 {
-int x;
-x = tolower(x);
-for (int x ; x = 'A' ; x <= 'Z' ; x++)
+char alpha = 'a';
+
+while (alpha <= 'z')
 {
-putchar(tolower(x));
+putchar(alpha);
+alpha++;
 }
 return (0);
 }
