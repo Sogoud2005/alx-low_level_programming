@@ -7,8 +7,8 @@
 
 int main(void)
 {
-char f;
-char s;
+int f;
+int s;
 
 for (f = '0'; f < '9'; f++)
 {
