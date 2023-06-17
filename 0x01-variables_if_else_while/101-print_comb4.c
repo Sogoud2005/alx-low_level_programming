@@ -21,11 +21,12 @@ putchar(t);
 putchar(u);
 if (h == '7' && t == '8' && u == '9')
 continue;
-putchar('\n');
+putchar(',');
 putchar(' ');
 }
 }
 }
 }
+putchar('\n');
 return (0);
 }
