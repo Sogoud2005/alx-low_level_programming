@@ -8,13 +8,14 @@
 int main(void)
 {
 int n, s, t, f;
+f = '2'
 for (n = '0'; n <= '9'; n++)
 {
 for (s = '0'; s < '9'; s++)
 {
 for (t = '0'; t <= '9'; t++)
 {
-for (f = '1'; f <= '9' && f >= '0'; f++)
+for (f = f - 1; f <= '9' && f >= '0'; f++)
 {
 putchar(n);
 putchar(s);
