@@ -18,9 +18,9 @@ for (f = '1'; f <= '9'; f++)
 {
 if (n != t && s != f)
 {
-else if (n == t && s != f)
+if (n == t && s != f)
 {
-else if (n != t && s == f)
+if (n != t && s == f)
 {
 putchar(n);
 putchar(s);
