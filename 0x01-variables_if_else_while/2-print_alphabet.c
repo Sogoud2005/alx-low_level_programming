@@ -5,7 +5,7 @@
  * Return: 0 (Success)
 */
 
-int main(void);
+int main(void)
 {
 int x;
 x = tolower(x);
