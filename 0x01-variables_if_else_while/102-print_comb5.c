@@ -16,7 +16,11 @@ for (t = '0'; t <= '9'; t++)
 {
 for (f = '1'; f <= '9'; f++)
 {
-if ((n != t && s != f) || (n != t && s == f) || (n == t && s != f))
+if (n != t && s != f)
+{
+else if (n == t && s != f)
+{
+else if (n != t && s == f)
 {
 putchar(n);
 putchar(s);
@@ -27,6 +31,8 @@ if (n == '9' && s == '8' && t == '9' && f == '9')
 continue;
 putchar(',');
 putchar(' ');
+}
+}
 }
 }
 }
