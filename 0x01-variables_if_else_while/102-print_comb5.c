@@ -16,7 +16,7 @@ for (t = '0'; t <= '9'; t++)
 {
 for (f = '1'; f <= '9'; f++)
 {
-if (n != t && s != f)
+if (n != t || s != f)
 {
 putchar(n);
 putchar(s);
