@@ -23,6 +23,6 @@ putchar(',');
 putchar(' ');
 }
 }
-purchar('\n');
+putchar('\n');
 return (0);
 }
