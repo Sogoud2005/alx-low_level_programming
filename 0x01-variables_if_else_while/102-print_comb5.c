@@ -1,35 +1,28 @@
 #include <stdio.h>
 
 /**
- * main - a program to print numbers
+ * main - a program that prints numbers
  * Return: 0 (Success)
 */
 
 int main(void)
 {
-int n, s, t, f;
-f = '2'
-for (n = '0'; n <= '9'; n++)
+int f, s;
+for (f = '0'; f <= '98'; f++)
 {
-for (s = '0'; s < '9'; s++)
+for (s = f + 1; s <= '99'; s++)
 {
-for (t = '0'; t <= '9'; t++)
-{
-for (f = f - 1; f <= '9' && f >= '0'; f++)
-{
-putchar(n);
-putchar(s);
+putchar((f / 10) + '0');
+putchar((f % 10) + '0');
 putchar(' ');
-putchar(t);
-putchar(f);
-if (n == '9' && s == '8' && t == '9' && f == '9')
+putchar((s / 10) + '0');
+putchar((s & 10) + '0');
+if (f == '98' && s == '99')
 continue;
 putchar(',');
 putchar(' ');
 }
 }
-}
-}
-putchar('\n');
+purchar('\n');
 return (0);
 }
