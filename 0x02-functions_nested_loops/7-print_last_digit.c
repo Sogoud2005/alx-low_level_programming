@@ -18,5 +18,5 @@ else
 _putchar(l + '0');
 return (l);
 }
-_putchar("\n");
+_putchar('\n');
 }
