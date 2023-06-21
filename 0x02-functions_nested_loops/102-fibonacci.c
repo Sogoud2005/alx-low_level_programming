@@ -6,15 +6,15 @@
 */
 int main(void)
 {
-int n = 0;
+int n = 1;
 long f = 1, s = 2;
 while (n <= 50)
 {
-if (n == 0)
+if (n == 1)
 {
 printf("%ld, ", f);
 }
-else if (n == 1)
+else if (n == 2)
 {
 printf("%ld", s);
 }
@@ -24,7 +24,7 @@ s += f;
 f = s - f;
 printf(", %ld", f);
 }
-n++;
+++n;
 }
 _putchar('\n');
 return (0);
