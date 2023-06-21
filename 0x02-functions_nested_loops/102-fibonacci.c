@@ -22,7 +22,7 @@ else
 {
 s += f;
 f = s - f;
-printf(", %ld", f);
+printf(", %ld", s);
 }
 ++n;
 }
