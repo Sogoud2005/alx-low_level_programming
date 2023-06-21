@@ -8,7 +8,7 @@ int main(void)
 {
 int n = 0;
 long f = 1, s = 2;
-while (n < 50)
+while (n <= 50)
 {
 if (n == 0)
 {
