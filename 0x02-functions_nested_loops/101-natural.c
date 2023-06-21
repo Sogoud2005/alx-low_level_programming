@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "main.h"
-/** 
+/**
  * main - a function that adds
  * Return: 0
 */
