@@ -12,17 +12,17 @@ while (n < 50)
 {
 if (n == 0)
 {
-printf("%d, ", f);
+printf("%ld, ", f);
 }
 else if (n == 1)
 {
-printf("%d", s);
+printf("%ld", s);
 }
 else
 {
 s += f;
 f = s - f;
-printf(", %d", f);
+printf(", %ld", f);
 }
 n++;
 }
