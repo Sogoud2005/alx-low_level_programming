@@ -24,7 +24,7 @@ s += f;
 f = s - f;
 printf(", %ld", f);
 }
-++n;
+n++;
 }
 _putchar('\n');
 return (0);
