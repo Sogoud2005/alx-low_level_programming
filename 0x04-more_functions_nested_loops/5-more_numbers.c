@@ -14,7 +14,7 @@ i = n;
 if (n > 9)
 {
 _putchar(1 + '0');
-i = n % 10
+i = n % 10;
 }
 _putchar(i + '0');
 }
