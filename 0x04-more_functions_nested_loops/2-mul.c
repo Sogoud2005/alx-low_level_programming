@@ -7,14 +7,5 @@
 */
 int mul(int a, int b)
 {
-	if (a < 0 || b < 0)
-	{
-	_putchar(-(a * b) + '0');
-	}
-	else
-	{
-	_putchar((a * b) + '0');
-	}
-	_putchar('\n');
-	return (0);
+	return (a * b);
 }
