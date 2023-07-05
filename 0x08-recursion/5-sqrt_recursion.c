@@ -2,6 +2,7 @@
 /**
  * _sqrt_recursion - a program
  * @n: ascii
+ * @i: ascii
  * Return: value
 */
 int _sqrt(int n, int i);
