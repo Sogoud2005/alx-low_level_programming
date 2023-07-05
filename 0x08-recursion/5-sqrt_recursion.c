@@ -21,11 +21,11 @@ int _sqrt(int n, int i)
 
 	if (s < n)
 	{
-		return (-1);
+		return (_sqrt(n, i + 1));
 	}
 	else if (s == n)
 	{
 		return (i);
 	}
-	return (_sqrt(n, i + 1));
+	return (-1);
 }
