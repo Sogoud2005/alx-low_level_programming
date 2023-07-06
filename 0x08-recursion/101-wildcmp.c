@@ -12,7 +12,7 @@ int end(char *s2)
 	if (*s2 == '*')
 		return (end(s2 + 1));
 	else
-	return (s2);
+	return (*s2);
 }
 /**
  * inception - a
