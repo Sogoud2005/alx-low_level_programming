@@ -7,7 +7,7 @@
 */
 int wildcmp(char *s1, char *s2);
 int inception(char *s1, char *s2);
-int *end(char *s2)
+char *end(char *s2)
 {
 	if (*s2 == '*')
 		return (end(s2 + 1));
