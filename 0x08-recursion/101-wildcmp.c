@@ -53,7 +53,7 @@ int wildcmp(char *s1, char *s2)
 		return (0);
 	if (*s2 == '*')
 	{
-		s2 = end(s2);
+		*s2 = end(s2);
 
 		if (!*s2)
 			return (1);
