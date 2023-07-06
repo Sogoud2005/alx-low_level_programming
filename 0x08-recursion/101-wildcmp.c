@@ -1,13 +1,13 @@
 #include "main.h"
 /**
- * end - a
+ * *end - a
  * @s1: ascii
  * @s2: ascii
  * Return: 1 or 0
 */
 int wildcmp(char *s1, char *s2);
 int inception(char *s1, char *s2);
-int end(char *s2)
+int *end(char *s2)
 {
 	if (*s2 == '*')
 		return (end(s2 + 1));
@@ -41,7 +41,7 @@ int wildcmp(char *s1, char *s2)
 {
 	int r = 0;
 
-	if (!*s1 && *s2 == '*' && !end(s2))
+	if (!*s1 && *s2 == '*' && !*end(s2))
 		return (1);
 	if (*s1 == *s2)
 	{
