@@ -8,6 +8,8 @@ int is_palindrome(char *s);
 int check(char *s, int start, int end, int mod);
 int last(char *s)
 {
+	int n;
+
 	if (*s > '\0')
 		n += last(s + 1) + 1;
 	return (n);
