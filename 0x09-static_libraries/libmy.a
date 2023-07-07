@@ -1,0 +1,2 @@
+#!/bin/bash
+ar cr libmy.a main.h
