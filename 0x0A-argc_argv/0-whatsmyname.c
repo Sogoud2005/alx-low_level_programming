@@ -6,7 +6,7 @@
  * @argv: value
  * Return: none
 */
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
 	(void)argc;
 	printf("%s\n", argv[0]);
