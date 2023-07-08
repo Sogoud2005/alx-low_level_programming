@@ -3,8 +3,8 @@
 #include <stdlib.h>
 /**
  * main - a
- * @i: a
- * @j: a
+ * @argc: a
+ * @argv: a
  * Return: 0
 */
 int main(int argc, char const *argv[])
