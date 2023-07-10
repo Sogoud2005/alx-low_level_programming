@@ -25,5 +25,5 @@ char *create_array(unsigned int size, char c)
 	{
 		return(NULL);
 	}
-	void free(p);
+	free(p);
 }
