@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 			{
 				change += money / cents[i];
 				money = money % cents[i];
-				if (money % cents [i] == 0)
+				if (money % cents[i] == 0)
 				{
 					break;
 				}
