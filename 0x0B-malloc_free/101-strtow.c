@@ -54,14 +54,14 @@ char **strtow(char *str)
 			j--;
 			if (w[wc] == NULL)
 			{
-			for (k = 0; k < wc; k++)
-			free(w[k]);
-			free(w[n - 1]);
-			free(w);
-			return (NULL);
+				for (k = 0; k < wc; k++)
+					free(w[k]);
+				free(w[n - 1]);
+				free(w);
+				return (NULL);
 			}
 			for (l = 0; l < j; l++)
-			w[wc][l] = str[i + 1];
+				w[wc][l] = str[i + 1];
 			w[wc][l] = '\0';
 			w++;
 			i += j;
