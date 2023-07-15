@@ -58,30 +58,30 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		_putchar('E');
-		_putchar("r");
-		_putchar("r");
-		_putchar("o");
-		_putchar("r");
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
 		_putchar('\n');
 		exit(98);
 	}
 if (argv[1] > 57 || argv[1] < 48)
 {
-_putchar("E");
-_putchar("r");
-_putchar("r");
-_putchar("o");
-_putchar("r");
+_putchar('E');
+_putchar('r');
+_putchar('r');
+_putchar('o');
+_putchar('r');
 _putchar('\n');
 exit(98);
 }
 if (argv[2] > 57 || argv[2] < 48)
 {
-_putchar("E");
-_putchar("r");
-_putchar("r");
-_putchar("o");
-_putchar("r");
+_putchar('E');
+_putchar('r');
+_putchar('r');
+_putchar('o');
+_putchar('r');
 _putchar('\n');
 exit(98);
 }
