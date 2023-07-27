@@ -19,6 +19,7 @@ int _strlen(char *s)
  * *add_node_end - adds a node at the end
  * @head: the head
  * @str: the string to add
+ * Return: a pointer
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
@@ -26,7 +27,7 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *temp = *head;
 
 	if (new == NULL || str == NULL)
-                return (NULL);
+		return (NULL);
 
 	new->str = strdup(str);
 	new->len = _strlen((char *)str);
