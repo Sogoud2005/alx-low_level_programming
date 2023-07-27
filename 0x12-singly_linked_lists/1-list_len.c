@@ -10,16 +10,10 @@ size_t list_len(const list_t *h)
 {
 	size_t i = 0;
 
-	if (h)
+	while (h)
 	{
-		if (h->str && h->len && h->next)
-			i = 3;
-		if (!h->str && !h->len && !h->next)
-			i = 0;
-		if ((h->str && h->len) || (h->str && h->next) || (h->len && h->next))
-			i = 2;
-		if ((!h->str && !h->len) || (!h->str && !h->next) || (!h->len && !h->next))
-			i = 1;
+		i++;
+		h = h->next;
 	}
 	return (i);
 }
