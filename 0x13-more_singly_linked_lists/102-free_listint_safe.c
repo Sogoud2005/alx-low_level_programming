@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "lists.h"
 /**
- * _r - reallocates memory
+ * r - reallocates memory
  * @list: old list
  * @size: size of the list
  * @new: new node
