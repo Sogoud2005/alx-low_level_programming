@@ -20,7 +20,7 @@ listint_t **r(listint_t **list, size_t size, listint_t *new)
 		free(list);
 		return (NULL);
 	}
-	for (i = 0; i < size - 1; i++)
+	for (i = 0; i < size; i++)
 	{
 		newlist[i] = list[i];
 	}
