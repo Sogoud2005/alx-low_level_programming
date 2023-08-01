@@ -10,6 +10,7 @@
 listint_t *find_loop(listint_t *head)
 {
 	listint_t *end, *ptr;
+
 	if (head == NULL)
 		return (NULL);
 
