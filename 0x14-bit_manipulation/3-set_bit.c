@@ -11,8 +11,10 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned long int m = 1 << index;
 
-	if (!n || !index)
-		return (-1);
-	*n = (*n & ~m) | (1 << index);
-	return (1);
+	while (n)
+	{
+		*n = (*n & ~m) | (1 << index);
+		return (1);
+	}
+	return (-1);
 }
