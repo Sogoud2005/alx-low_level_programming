@@ -154,7 +154,7 @@ void print_osabi_more(Elf64_Ehdr h)
 */
 void print_abiversion(Elf64_Ehdr h)
 {
-	printf("  ABI Version:                       %d\n", 
+	printf("  ABI Version:                       %d\n",
 			h.e_ident[EI_ABIVERSION]);
 }
 /**
@@ -244,7 +244,7 @@ int main(int argc, char **argv)
 	if (b < 1 || b != sizeof(h))
 		dprintf(STDERR_FILENO, "Can't read file %s\n", argv[1]), exit(98);
 
-	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' && 
+	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
 			h.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
