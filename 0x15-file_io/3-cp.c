@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 	fd = close(fd);
 	fd2 = close(fd2);
 	if (fd == -1)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd), exit(100);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
 	return (EXIT_SUCCESS);
