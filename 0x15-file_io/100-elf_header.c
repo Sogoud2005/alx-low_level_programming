@@ -239,10 +239,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage : elf_header elf_filename\n"), exit(98);
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
-		dprintf(STDERR_FILENO, "Can't open file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Can't open file %s\n", argv[1]), exit(98);
 	b = read(fd, &h, sizeof(h));
 	if (b < 1 || b != sizeof(h))
-		dprintf(STDERR_FILENO, "Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Can't read file %s\n", argv[1]), exit(98);
+
 	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' && 
 			h.e_ident[3] == 'F')
 	{
