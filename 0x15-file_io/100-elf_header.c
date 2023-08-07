@@ -268,6 +268,6 @@ int main(int argc, char **argv)
 	print_entry(h);
 
 	if (close(fd))
-		dprintf(STDERR_FILENO, "can't close file\n"), exit(98);
+		dprintf(STDERR_FILENO, "can't close file descriptor %d\n", fd), exit(98);
 	return (EXIT_SUCCESS);
 }
