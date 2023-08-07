@@ -177,8 +177,6 @@ void print_type(Elf64_Ehdr h)
 		i = 1;
 	switch (p[i])
 	{
-		case ET_NONE:
-			printf("NONE (none)");
 		case ET_REL:
 			printf("REL (Relocatable file)");
 			break;
