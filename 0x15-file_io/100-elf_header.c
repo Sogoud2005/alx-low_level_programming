@@ -13,8 +13,8 @@ void print_magic(Elf64_Ehdr h)
 	int i;
 
 	printf("  Magic:   ");
-	for (i = 0; i < EI_NIDENT; i++)
-		printf("%2.2x%s", h.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
+	for (i = 1; i <= EI_NIDENT; i++)
+		printf("%2.2x%s", h.e_ident[i], i == EI_NIDENT ? "\n" : " ");
 }
 /**
  * print_class - prints elf class
@@ -28,17 +28,18 @@ void print_class(Elf64_Ehdr h)
 	switch (h.e_ident[EI_CLASS])
 	{
 		case ELFCLASS64:
-			printf("ELF64\n");
-			break;
+			printf("ELF64");
+		break;
 
 		case ELFCLASS32:
-			printf("ELF32\n");
-			break;
+			printf("ELF32");
+		break;
 
 		case ELFCLASSNONE:
-			printf("none\n");
-			break;
+			printf("none");
+		break;
 	}
+	printf("\n");
 }
 /**
  * print_data - prints data
@@ -52,16 +53,17 @@ void print_data(Elf64_Ehdr h)
 	switch (h.e_ident[EI_DATA])
 	{
 		case ELFDATA2LSB:
-			printf("2's complement, little endian\n");
-			break;
+			printf("2's complement, little endian");
+		break;
 
 		case ELFDATA2MSB:
-			printf("2's complement, big endian\n");
-			break;
+			printf("2's complement, big endian");
+		break;
 		case ELFDATANONE:
-			printf("NONE\n");
-			break;
+			printf("NONE");
+		break;
 	}
+	printf("\n");
 }
 /**
  * print_version - prints system version
@@ -70,17 +72,19 @@ void print_data(Elf64_Ehdr h)
 */
 void print_version(Elf64_Ehdr h)
 {
-	printf("  Version:                           ");
+	printf("  Version:                           %d", h.e_ident[EI_VERSION]);
 
 	switch (h.e_ident[EI_VERSION])
 	{
 		case EV_NONE:
-			printf("\n");
-			break;
+			printf("%s", "");
+		break;
 		case EV_CURRENT:
-			printf("1 (current)\n");
-			break;
+			printf(" (current)");
+		break;
+		break;
 	}
+	printf("\n");
 }
 /**
  * print_osabi - prints os/abi
@@ -92,34 +96,38 @@ void print_osabi(Elf64_Ehdr h)
 
 	switch (h.e_ident[EI_OSABI])
 	{
+		case ELFOSABI_NONE:
+			printf("UNIX - System V");
+			break;
 		case ELFOSABI_HPUX:
-			printf("UNIX - HP-UX\n");
+			printf("UNIX - HP-UX");
 			break;
 		case ELFOSABI_NETBSD:
-			printf("UNIX - NetBSD\n");
+			printf("UNIX - NetBSD");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - Linux\n");
+			printf("UNIX - Linux");
 			break;
 		case ELFOSABI_SOLARIS:
-			printf("UNIX - Solaris\n");
+			printf("UNIX - Solaris");
 			break;
 		case ELFOSABI_AIX:
-			printf("UNIX - AIX\n");
+			printf("UNIX - AIX");
 			break;
 		case ELFOSABI_IRIX:
-			printf("UNIX - IRIX\n");
+			printf("UNIX - IRIX");
 			break;
 		case ELFOSABI_FREEBSD:
-			printf("UNIX - FreeBSD\n");
+			printf("UNIX - FreeBSD");
 			break;
 		case ELFOSABI_TRU64:
-			printf("UNIX - TRU64\n");
+			printf("UNIX - TRU64");
 			break;
 		default:
 			print_osabi_more(h);
 			break;
 	}
+	printf("\n");
 }
 /**
  * print_osabi_more - prints os/abi
@@ -139,7 +147,6 @@ void print_osabi_more(Elf64_Ehdr h)
 			printf("UNKNOWN: %x", h.e_ident[EI_OSABI]);
 			break;
 	}
-	printf("\n");
 }
 /**
  * print_abiversion - prints abi version
@@ -178,7 +185,6 @@ void print_type(Elf64_Ehdr h)
 			break;
 		default:
 			printf("<unknown: %x>", p[i]);
-			break;
 		break;
 	}
 	printf("\n");
@@ -244,7 +250,7 @@ int main(int argc, char **argv)
 	}
 
 	else
-		dprintf(STDERR_FILENO, "Not ELF file\n");
+		dprintf(STDERR_FILENO, "Not ELF file\n"), exit(98);
 	print_magic(h);
 	print_class(h);
 	print_data(h);
@@ -255,6 +261,6 @@ int main(int argc, char **argv)
 	print_entry(h);
 
 	if (close(fd))
-		dprintf(STDERR_FILENO, "can't close file\n");
+		dprintf(STDERR_FILENO, "can't close file\n"), exit(98);
 	return (EXIT_SUCCESS);
 }
