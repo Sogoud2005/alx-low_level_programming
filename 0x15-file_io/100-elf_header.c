@@ -143,6 +143,12 @@ void print_osabi_more(Elf64_Ehdr h)
 		case ELFOSABI_STANDALONE:
 			printf("Standalone app");
 			break;
+		case ELFOSABI_MODESTO:
+			printf("Novell - MODESTO");
+			break;
+		case ELFOSABI_ARM:
+			printf("ARM");
+			break;
 		default:
 			printf("UNKNOWN: %x", h.e_ident[EI_OSABI]);
 			break;
@@ -171,6 +177,8 @@ void print_type(Elf64_Ehdr h)
 		i = 1;
 	switch (p[i])
 	{
+		case ET_NONE:
+			printf("NONE (none)");
 		case ET_REL:
 			printf("REL (Relocatable file)");
 			break;
