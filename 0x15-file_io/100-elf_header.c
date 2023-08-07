@@ -14,7 +14,7 @@ void print_magic(Elf64_Ehdr h)
 
 	printf("  Magic:   ");
 	for (i = 0; i < EI_NIDENT; i++)
-		printf("%2.2x%s", h.e_ident, i == EI_NIDENT - 1 ? "\n" : " ");
+		printf("%2.2x%s", h.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 }
 /**
  * print_class - prints elf class
@@ -27,17 +27,17 @@ void print_class(Elf64_Ehdr h)
 
 	switch (h.e_ident[EI_CLASS])
 	{
-		case ELFCLASS64
+		case ELFCLASS64:
 			printf("ELF64\n");
-		break;
+			break;
 
-		case ELFCLASS32
+		case ELFCLASS32:
 			printf("ELF32\n");
-		break;
+			break;
 
-		case ELFCLASSNONE
+		case ELFCLASSNONE:
 			printf("none\n");
-		break;
+			break;
 	}
 }
 /**
@@ -51,16 +51,16 @@ void print_data(Elf64_Ehdr h)
 
 	switch (h.e_ident[EI_DATA])
 	{
-		case ELFDATA2LSB
+		case ELFDATA2LSB:
 			printf("2's complement, little endian\n");
-		break;
+			break;
 
-		case ELFDATA2MSB
+		case ELFDATA2MSB:
 			printf("2's complement, big endian\n");
-		break;
-		case ELFDATANONE
+			break;
+		case ELFDATANONE:
 			printf("NONE\n");
-		break;
+			break;
 	}
 }
 /**
@@ -74,12 +74,12 @@ void print_version(Elf64_Ehdr h)
 
 	switch (h.e_ident[EI_VERSION])
 	{
-		case EV_NONE
+		case EV_NONE:
 			printf("\n");
-		break;
-		case EV_CURRENT
+			break;
+		case EV_CURRENT:
 			printf("1 (current)\n");
-		break;
+			break;
 	}
 }
 /**
@@ -92,30 +92,30 @@ void print_osabi(Elf64_Ehdr h)
 
 	switch (h.e_ident[EI_OSABI])
 	{
-		case ELFOSABI_HPUX
+		case ELFOSABI_HPUX:
 			printf("UNIX - HP-UX");
-		break;
-		case ELFOSABI_NETBSD
+			break;
+		case ELFOSABI_NETBSD:
 			printf("UNIX - NetBSD");
-		break;
-		case ELFOSABI_LINUX
+			break;
+		case ELFOSABI_LINUX:
 			printf("UNIX - Linux");
-		break;
-		case ELFOSABI_SOLARIS
+			break;
+		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
-		break;
-		case ELFOSABI_AIX
+			break;
+		case ELFOSABI_AIX:
 			printf("UNIX - AIX");
-		break;
-		case ELFOSABI_IRIX
+			break;
+		case ELFOSABI_IRIX:
 			printf("UNIX - IRIX");
-		break;
-		case ELFOSABI_FREEBSD
+			break;
+		case ELFOSABI_FREEBSD:
 			printf("UNIX - FreeBSD");
-		break;
-		case ELFOSABI_TRU64
+			break;
+		case ELFOSABI_TRU64:
 			printf("UNIX - TRU64");
-		break;
+			break;
 		default:
 			print_osabi_more(h);
 			break;
@@ -131,12 +131,12 @@ void print_osabi_more(Elf64_Ehdr h)
 {
 	switch (h.e_ident[EI_OSABI])
 	{
-		case ELFOSABI_OPENBSD	
+		case ELFOSABI_OPENBSD:
 			printf("UNIX - OpenBSD");
-		break;
-		case ELFOSABI_STANDALONE
+			break;
+		case ELFOSABI_STANDALONE:
 			printf("Standalone app");
-		break;
+			break;
 		default:
 			printf("UNKNOWN: %x", h.e_ident[EI_OSABI]);
 			break;
@@ -163,22 +163,22 @@ void print_type(Elf64_Ehdr h)
 	int i = 0;
 
 	printf("  Type:                              ");
-	if (h.e_ident[EI_TYPE] == ELFDATA2MSB)
+	if (h.e_ident[EI_DATA] == ELFDATA2MSB)
 		i = 1;
 	switch (p[i])
 	{
 		case ET_REL:
 			printf("REL (Relocatable file)");
-		break;
+			break;
 		case ET_EXEC:
 			printf("EXEC (Executable file)");
-		break;
+			break;
 		case ET_DYN:
 			printf("DYN (Shared object file)");
-		break;
+			break;
 		case ET_CORE:
 			printf("CORE (Core file)");
-		break;
+			break;
 		default:
 			printf("<unknown: %x>", p[i]);
 			break;
