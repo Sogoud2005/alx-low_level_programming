@@ -29,14 +29,9 @@ int main(int argc, char **argv)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	}
-	while ((b = read(fd2, buff, READ_BUF_SIZE) > 0))
-	{
+	while ((b = read(fd2, buff, READ_BUF_SIZE)) > 0)
 		if (write(fd, buff, b) != b)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
-	}
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	if (b == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file  %s\n", argv[2]);
