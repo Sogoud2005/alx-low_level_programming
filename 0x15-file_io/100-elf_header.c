@@ -257,7 +257,7 @@ int main(int argc, char **argv)
 	}
 
 	else
-		dprintf(STDERR_FILENO, "Not ELF file\n"), exit(98);
+		dprintf(STDERR_FILENO, "Not ELF file %s\n", argv[1]), exit(98);
 	print_magic(h);
 	print_class(h);
 	print_data(h);
