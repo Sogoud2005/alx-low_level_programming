@@ -93,35 +93,33 @@ void print_osabi(Elf64_Ehdr h)
 	switch (h.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_HPUX:
-			printf("UNIX - HP-UX");
+			printf("UNIX - HP-UX\n");
 			break;
 		case ELFOSABI_NETBSD:
-			printf("UNIX - NetBSD");
+			printf("UNIX - NetBSD\n");
 			break;
 		case ELFOSABI_LINUX:
-			printf("UNIX - Linux");
+			printf("UNIX - Linux\n");
 			break;
 		case ELFOSABI_SOLARIS:
-			printf("UNIX - Solaris");
+			printf("UNIX - Solaris\n");
 			break;
 		case ELFOSABI_AIX:
-			printf("UNIX - AIX");
+			printf("UNIX - AIX\n");
 			break;
 		case ELFOSABI_IRIX:
-			printf("UNIX - IRIX");
+			printf("UNIX - IRIX\n");
 			break;
 		case ELFOSABI_FREEBSD:
-			printf("UNIX - FreeBSD");
+			printf("UNIX - FreeBSD\n");
 			break;
 		case ELFOSABI_TRU64:
-			printf("UNIX - TRU64");
+			printf("UNIX - TRU64\n");
 			break;
 		default:
 			print_osabi_more(h);
 			break;
-		break;
 	}
-	printf("\n");
 }
 /**
  * print_osabi_more - prints os/abi
@@ -140,7 +138,6 @@ void print_osabi_more(Elf64_Ehdr h)
 		default:
 			printf("UNKNOWN: %x", h.e_ident[EI_OSABI]);
 			break;
-		break;
 	}
 	printf("\n");
 }
@@ -150,7 +147,7 @@ void print_osabi_more(Elf64_Ehdr h)
 */
 void print_abiversion(Elf64_Ehdr h)
 {
-	printf(" ABI Version:                       %d\n", 
+	printf("  ABI Version:                       %d\n", 
 			h.e_ident[EI_ABIVERSION]);
 }
 /**
