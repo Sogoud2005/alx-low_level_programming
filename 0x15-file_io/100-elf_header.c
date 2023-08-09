@@ -149,6 +149,10 @@ void print_osabi_more(Elf64_Ehdr h)
 		case ELFOSABI_ARM:
 			printf("ARM");
 			break;
+		default:
+			printf("<unknown : %x>", h.e_ident[EI_OSABI]);
+			break;
+
 	}
 }
 /**
