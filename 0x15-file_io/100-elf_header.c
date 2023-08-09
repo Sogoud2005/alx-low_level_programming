@@ -150,7 +150,7 @@ void print_osabi_more(Elf64_Ehdr h)
 			printf("ARM");
 			break;
 		default:
-			printf("<unknown : %x>", h.e_ident[EI_OSABI]);
+			printf("");
 			break;
 	}
 }
