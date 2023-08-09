@@ -149,9 +149,6 @@ void print_osabi_more(Elf64_Ehdr h)
 		case ELFOSABI_ARM:
 			printf("ARM");
 			break;
-		default:
-			printf("");
-			break;
 	}
 }
 /**
