@@ -45,7 +45,7 @@ unsigned int binary_to_uint(const char *b)
 {
 	int n, num, dec = 0, last, base = 1;
 
-	if (!*b)
+	if (!b)
 	{
 		return (0);
 	}
