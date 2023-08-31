@@ -44,7 +44,8 @@ int check_bi(const char *b)
 */
 unsigned int binary_to_uint(const char *b)
 {
-	int num, dec = 0, last, base = 1;
+	int num, last, base = 1;
+	unsigned int dec = 0;
 
 	if (!b)
 	{
