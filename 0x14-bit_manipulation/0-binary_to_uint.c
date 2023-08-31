@@ -13,7 +13,6 @@ int _strlen(const char *b)
 	{
 		i++;
 	}
-	i++;
 
 	return (i);
 }
@@ -28,7 +27,7 @@ int check_bi(const char *b)
 {
 	int i = 0;
 
-	for (i = 0; i <= _strlen(b); i++)
+	for (i = 0; i < _strlen(b); i++)
 	{
 		if (b[i] != 48 && b[i] != 49)
 		{
@@ -45,16 +44,14 @@ int check_bi(const char *b)
 */
 unsigned int binary_to_uint(const char *b)
 {
-	int n, num, dec = 0, last, base = 1;
+	int num, dec = 0, last, base = 1;
 
 	if (!b)
 	{
 		return (0);
 	}
 
-	n = check_bi(b);
-
-	if (n == 0)
+	if (check_bi(b) == 0)
 	{
 		return (0);
 	}
