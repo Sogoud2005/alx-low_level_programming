@@ -13,6 +13,8 @@ int _strlen(const char *b)
 	{
 		i++;
 	}
+	i++;
+
 	return (i);
 }
 
@@ -26,7 +28,7 @@ int check_bi(const char *b)
 {
 	int i = 0;
 
-	for (i = 0; i < _strlen(b); i++)
+	for (i = 0; i <= _strlen(b); i++)
 	{
 		if (b[i] != 48 && b[i] != 49)
 		{
