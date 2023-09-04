@@ -9,8 +9,10 @@ void more_osabi(Elf64_Ehdr h);
 */
 void print_magic(Elf64_Ehdr h)
 {
+	int i;
+
 	printf("  Magic:   ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 		printf("%2.2x%s", h.e_ident[i], i == EI_NIDENT - 1 ? "\n" : " ");
 }
 /**
@@ -22,13 +24,13 @@ void print_class(Elf64_Ehdr h)
 	printf("  Class:                             ");
 	switch (h.e_ident[EI_CLASS])
 	{
-		case ELFCLASSNONE
+		case ELFCLASSNONE:
 			printf("none");
 		break;
-		case ELFCLASS32
+		case ELFCLASS32:
 			printf("ELF32");
 		break;
-		case ELFCLASS64
+		case ELFCLASS64:
 			printf("ELF64");
 		break;
 	}
@@ -43,13 +45,13 @@ void print_data(Elf64_Ehdr h)
 	printf("  Data:                              ");
 	switch (h.e_ident[EI_DATA])
 	{
-		case ELFDATANONE
+		case ELFDATANONE:
 			printf("none");
 		break;
-		case ELFDATA2LSB
+		case ELFDATA2LSB:
 			printf("2's complement, little endian");
 		break;
-		case ELFDATA2MSB
+		case ELFDATA2MSB:
 			printf("2's complement, big endian");
 		break;
 	}
@@ -64,10 +66,10 @@ void print_version(Elf64_Ehdr h)
 	printf("  Version:                           ");
 	switch (h.e_ident[EI_VERSION])
 	{
-		case EV_NONE
+		case EV_NONE:
 			printf("none");
 		break;
-		case EV_CURRENT
+		case EV_CURRENT:
 			printf("1 (current)");
 		break;
 	}
@@ -80,33 +82,33 @@ void print_version(Elf64_Ehdr h)
 void print_osabi(Elf64_Ehdr h)
 {
 	printf("  OS/ABI:                            ");
-	switch (h.eident[EI_OSABI])
+	switch (h.e_ident[EI_OSABI])
 	{
-		case ELFOSABI_NONE
+		case ELFOSABI_NONE:
 			printf("UNIX - System V");
 		break;
-		case ELFOSABI_HPUX
+		case ELFOSABI_HPUX:
 			printf("UNIX - HP-UX");
 		break;
-		case ELFOSABI_NETBSD
+		case ELFOSABI_NETBSD:
 			printf("UNIX - NetBSD");
 		break;
-		case ELFOSABI_LINUX
+		case ELFOSABI_LINUX:
 			printf("UNIX - Linux");
 		break;
-		case ELFOSABI_SOLARIS
+		case ELFOSABI_SOLARIS:
 			printf("UNIX - Solaris");
 		break;
-		case ELFOSABI_AIX
+		case ELFOSABI_AIX:
 			printf("UNIX - AIX");
 		break;
-		case ELFOSABI_IRIX
+		case ELFOSABI_IRIX:
 			printf("UNIX - IRIX");
 		break;
-		case ELFOSABI_FREEBSD
+		case ELFOSABI_FREEBSD:
 			printf("UNIX - FreeBSD");
 		break;
-		case ELFOSABI_TRU64
+		case ELFOSABI_TRU64:
 			printf("UNIX - TRU64");
 		break;
 		default:
@@ -121,22 +123,22 @@ void print_osabi(Elf64_Ehdr h)
 */
 void more_osabi(Elf64_Ehdr h)
 {
-	switch (h.eident[EI_OSABI])
+	switch (h.e_ident[EI_OSABI])
 	{
-		case ELFOSABI_MODESTO
+		case ELFOSABI_MODESTO:
 			printf("Novell - Modesto");
 		break;
-		case ELFOSABI_OPENBSD
+		case ELFOSABI_OPENBSD:
 			printf("UNIX - OpenBSD");
 		break;
-		case ELFOSABI_STANDALONE
+		case ELFOSABI_STANDALONE:
 			printf("Standalone App");
 		break;
-		case ELFOSABI_ARM
+		case ELFOSABI_ARM:
 			printf("ARM");
 		break;
 		default:
-			printf("<unknown: %x>", h.eident[EI_OSABI]);
+			printf("<unknown: %x>", h.e_ident[EI_OSABI]);
 			break;
 	}
 }
@@ -164,19 +166,19 @@ void print_type(Elf64_Ehdr h)
 
 	switch (p[i])
 	{
-		case ET_NONE
+		case ET_NONE:
 			printf("NONE (None)");
 		break;
-		case ET_REL
+		case ET_REL:
 			printf("REL (Relocatable file)");
 		break;
-		case ET_EXEC
+		case ET_EXEC:
 			printf("EXEC (Executable file)");
 		break;
-		case ET_DYN
+		case ET_DYN:
 			printf("DYN (Shared object file)");
 		break;
-		case ET_CORE
+		case ET_CORE:
 			printf("CORE (Core file)");
 		break;
 		default:
@@ -216,7 +218,7 @@ void print_entry(Elf64_Ehdr h)
 		while (!p[i])
 			i++;
 		printf("%x", p[i++]);
-		for (; i <= len)
+		for (; i <= len; i++)
 			printf("%02x", p[i]);
 		printf("\n");
 	}
@@ -241,14 +243,14 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	if (h.ident[0] == 0x07 && h.ident[1] == 'E' && h.ident[2] == 'L' &&
-			h.ident[3] == 'F')
+	if (h.e_ident[0] == 0x07 && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
+			h.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
 	}
 	else
 	{
-		dprintf(STDERR_FILENO, "NOT ELF FILE %d\n", av[1]);
+		dprintf(STDERR_FILENO, "NOT ELF FILE %s\n", av[1]);
 		exit(98);
 	}
 	print_magic(h);
