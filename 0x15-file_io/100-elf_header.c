@@ -63,14 +63,15 @@ void print_data(Elf64_Ehdr h)
 */
 void print_version(Elf64_Ehdr h)
 {
-	printf("  Version:                           ");
+	printf("  Version:                           %d", h.e_ident[EI_VERSION]);
 	switch (h.e_ident[EI_VERSION])
 	{
 		case EV_NONE:
-			printf("none");
+			printf("%s", "");
 		break;
 		case EV_CURRENT:
-			printf("1 (current)");
+			printf(" (current)");
+		break;
 		break;
 	}
 	printf("\n");
@@ -193,14 +194,14 @@ void print_type(Elf64_Ehdr h)
 */
 void print_entry(Elf64_Ehdr h)
 {
-	char *p = (char *)&h.e_ident;
+	unsigned char *p = (unsigned char *)&h.e_entry;
 	int i = 0, len = 0;
 
-	printf("  Entry point address:               ");
+	printf("  Entry point address:               0x");
 	if (h.e_ident[EI_DATA] != ELFDATA2MSB)
 	{
 		i = h.e_ident[EI_CLASS] == ELFCLASS64 ? 7 : 3;
-		while (p[i])
+		while (!p[i])
 		{
 			i--;
 		}
@@ -223,6 +224,12 @@ void print_entry(Elf64_Ehdr h)
 		printf("\n");
 	}
 }
+/**
+ * main - entry
+ * @ac: args count
+ * @av: av
+ * Return: int
+*/
 int main(int ac, char **av)
 {
 	int fd;
@@ -243,7 +250,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	if (h.e_ident[0] == 0x07 && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
+	if (h.e_ident[0] == 0x7f && h.e_ident[1] == 'E' && h.e_ident[2] == 'L' &&
 			h.e_ident[3] == 'F')
 	{
 		printf("ELF Header:\n");
