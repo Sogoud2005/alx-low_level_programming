@@ -5,9 +5,12 @@
  * @str: string
  * Return: length
 */
-ssize_t _strlen(char *str)
+int _strlen(char *str)
 {
-	ssize_t i = 0;
+	int i = 0;
+
+	if (!str)
+		return (0);
 
 	while (*str++)
 	{
