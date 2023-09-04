@@ -5,9 +5,12 @@
  * @str: string
  * Return: length
 */
-ssize_t _strlen(char *str)
+int _strlen(char *str)
 {
-	ssize_t i = 0;
+	int i = 0;
+
+	if (!str)
+		return (0);
 
 	while (*str++)
 	{
@@ -24,8 +27,8 @@ ssize_t _strlen(char *str)
 */
 int create_file(const char *filename, char *text_content)
 {
-	ssize_t l, len = _strlen(text_content);
-	int fd;
+	ssize_t l;
+	int fd, len = _strlen(text_content);
 
 	if (!filename)
 		return (-1);
