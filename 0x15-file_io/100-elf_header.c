@@ -73,3 +73,60 @@ void print_version(Elf64_Ehdr h)
 	}
 	printf("\n");
 }
+/**
+ * print_osabi - prints osabi
+ * @h: elf struct
+*/
+void print_osabi(Elf64_Ehdr h)
+{
+	printf("  OS/ABI:                            ");
+	switch (h.eident[EI_OSABI])
+	{
+		case ELFOSABI_NONE
+			printf("UNIX - System V");
+		break;
+		case ELFOSABI_HPUX
+			printf("UNIX - HP-UX");
+		break;
+		case ELFOSABI_NETBSD
+			printf("UNIX - NetBSD");
+		break;
+		case ELFOSABI_LINUX
+			printf("UNIX - Linux");
+		break;
+		case ELFOSABI_SOLARIS
+			printf("UNIX - Solaris");
+		break;
+		case ELFOSABI_AIX
+			printf("UNIX - AIX");
+		break;
+		case ELFOSABI_IRIX
+			printf("UNIX - IRIX");
+		break;
+		case ELFOSABI_FREEBSD
+			printf("UNIX - FreeBSD");
+		break;
+		case ELFOSABI_TRU64
+			printf("UNIX - TRU64");
+		break;
+		default:
+			more_osabi(h);
+			break;
+	}
+	printf("\n");
+}
+/**
+ * more_osabi - more osabi
+ * @h: elf struct
+*/
+void more_osabi(Elf64_Ehdr h)
+{
+	switch (h.eident[EI_OSABI])
+	{
+		case ELFOSABI_MODESTO
+			printf("Novell - Modesto");
+		break;
+		case ELFOSABI_OPENBSD	
+			printf("UNIX - OpenBSD");
+		break;
+
